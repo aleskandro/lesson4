@@ -1,24 +1,32 @@
 <md-content class="md-padding scroll tab-content"> 
+<div layout="column" layout-align="center">
+
 	<md-list>
-		<md-list-item class="md-2-line" ng-repeat="item in customListCtrl.items | filter: customListCtrl.filterFunction" ng-class="customListCtrl.selectedItem == item ? \'selected\':\'\'" ng-click="customListCtrl.toggleSelection(item)">
+		<md-card class="md-2-line" ng-repeat="item in customListCtrl.items | filter: customListCtrl.filterFunction" ng-class="customListCtrl.selectedItem == item ? \'selected\':\'\'" ng-click="customListCtrl.toggleSelection(item)">
+					
+		<md-card-title>
+			<md-card-title-text layout="row">
+		        <span flex layout ="column"><b>Titolo</b>{{item.title}}</span>
+                <span flex layout ="column"><b>Descrizione</b>{{item.description}}</span>
+				<span flex layout ="column" ng-if="item.priority == 1"><b>Priorità</b>Alta</span>
+				<span flex layout ="column" ng-if="item.priority == 0"><b>Priorità</b>Media</span>
+				<span flex layout ="column" ng-if="item.priority == -1"><b>Priorità</b>Bassa</span>
+			    <span flex layout ="column"><b>Tag</b>{{item.tags}}</span>
+				<span flex layout ="column"><b>Tempo stimato</b>{{item.hours}} Ore</span>
+                <span flex layout ="column"><b>Data</b>{{item.date  | date: "dd-MM-yyyy HH:mm"}}</span>
+				<span flex layout ="column"><b>Change Priority</b><md-button ng-click="customListCtrl.changePriority(item)" class="md-icon-button" aria-label="Priority">
+					<md-icon style="color: green" ng-if="item.priority == -1">low_priority</md-icon>
+					<md-icon ng-if="item.priority == 0">label</md-icon> 
+					<md-icon style="color: red" ng-if="item.priority == 1">priority_high</md-icon>
+					</md-button></span>
+				<md-checkbox ng-model="item.done" ng-change="customListCtrl.checkStateChanged()" class="md-primary md-align-top-right"> 
+				</md-checkbox>
+			</md-card-title-text>
+		</md-card-title>
 
-                
-		<md-button ng-click="customListCtrl.changePriority(item)" class="md-icon-button" aria-label="Priority">
-			<md-icon style="color: green" ng-if="item.priority == -1">low_priority</md-icon>
-            <md-icon ng-if="item.priority == 0">label</md-icon> 
-			<md-icon style="color: red" ng-if="item.priority == 1">priority_high</md-icon>
-        </md-button>
-        <div class="md-list-item-text">
-			<h3>{{item.title}}</h3>
-			<p><span class="prefix">Descrizione:</span> {{item.description}}</p>
-            <p><span class="prefix">Priorità:</span> {{item.priority}}</p>
-            <p><span class="prefix">Tag:</span> {{item.tags}}</p>
-			<p><span class="prefix">Tempo stimato:</span> {{item.hours}} Ore</p>
-            <p><span class="prefix">Data inserimento:</span> {{item.date | date: "dd-MM-yyyy HH:mm"}}</p>
 
-        </div>' 
-        <md-checkbox ng-model="item.done" ng-change="customListCtrl.checkStateChanged()" class="md-primary md-align-top-right"> 
-        </md-checkbox>
+      
         <md-divider></md-divider> 
-    </md-list>
+    </md-card>
+</div>
 </md-content>
