@@ -14,7 +14,7 @@
                         <input ng-model="vm.tags" size="30" placeholder="Tags">
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-xs="">
-                        <input ng-model="vm.hours" size="30" type="number" step="0.5" placeholder="Tempo stimato ( in ore )">
+                        <input ng-model="vm.hours" size="30" type="number" step="0.5" min="0" placeholder="Tempo stimato ( in ore )">
                 </md-input-container>
 
                 <md-button ng-click="answer(vm)" class="md-raised md-primary">Salva</md-button>
