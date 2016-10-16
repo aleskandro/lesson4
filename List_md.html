@@ -2,6 +2,7 @@
 <md-content class="md-padding scroll tab-content"> 
 <md-table-container>
 	<table md-table>
+		<input  type="text" ng-model="item.title.q" placeholder="Search Task">
 		<thead md-head md-order="filter">
 			<tr md-row>
 				<th md-column md-order-by="title"><span>Titolo</span></th>
@@ -17,7 +18,10 @@
 		</thead>
 		
 		<tbody md-body>
-				<tr md-row  ng-repeat="item in customListCtrl.items | orderBy:filter | filter: customListCtrl.filterFunction"  ng-click="customListCtrl.toggleSelection(item)">
+				<tr md-row  ng-repeat="item in customListCtrl.items | orderBy:filter  | filter:item.title.q as results"  ng-click="customListCtrl.toggleSelection(item)">
+				<li class="animate-repeat" ng-if="results.length === 0">
+												<strong>No results found.</strong>
+																		</li>
 				<td md-cell>{{item.title}}</td>
 				<td md-cell>{{item.description}}</td>
 				<td md-cell ng-if="item.priority == 1">Alta</td>

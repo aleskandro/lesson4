@@ -4,7 +4,6 @@
     var module = angular.module('todoApp', ['ngMaterial','md.data.table']);
 
     angular.module('todoApp').controller('TodoController', TodoController);
-
     function TodoController($scope, storageService, $mdDialog) {
         var vm = this;
 
