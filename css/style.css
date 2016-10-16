@@ -29,4 +29,8 @@ md-tab-content.md-no-scroll>div,
 .prefix{
         color: red !important;
 }
-
+.error-field{
+	color: red;
+	font-size: 12px;
+	text-align: right;
+}
