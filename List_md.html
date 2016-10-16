@@ -1,45 +1,43 @@
+<div>
 <md-content class="md-padding scroll tab-content"> 
-<div layout="column" layout-align="center">
-	<md-card class?"md-2-line">
-	<md-card-title>
-		<md-card-title-text layout="row">
-			<span flex layout ="column"><b>Titolo</b></span>
-            <span flex layout ="column"><b>Descrizione</b></span>
-			<span flex layout ="column"><b>Priorità</b></span>
-		    <span flex layout ="column"><b>Tag</b></span>
-			<span flex layout ="column"><b>Tempo stimato</b></span>
-			<span flex layout ="column"><b>Data</b></span>
-			<span flex layout ="column"><b>Change Priority</b></span>
-			<span flex layout ="column"><b>Done?</b></span>
-		</md-card-title-text>
-	</md-card-title>
-	</md-card>
-		<md-card class="md-2-line" ng-repeat="item in customListCtrl.items | filter: customListCtrl.filterFunction" ng-class="customListCtrl.selectedItem == item ? \'selected\':\'\'" ng-click="customListCtrl.toggleSelection(item)">
-					
-		<md-card-title>
+<md-table-container>
+	<table md-table>
+		<thead md-head md-order="filter">
+			<tr md-row>
+				<th md-column md-order-by="title"><span>Titolo</span></th>
+				<th md-column>Descrizione</th>
+				<th md-column md-order-by="priority"><span>Piorità</span></th>
+				<th md-column><span>Tag</span></th>
+				<th md-column><span>Tempo stimato</span></th>
+				<th md-column md-order-by="date"><span>Data Immissione</span></th>
+				<th md-column><span>Cambio Priorità</span></th>
+				<th md-column><span>Fatto?</span></th>
 
-			<md-card-title-text layout="row">
-		        <span flex layout ="column">{{item.title}}</span>
-                <span flex layout ="column">{{item.description}}</span>
-				<span flex layout ="column" ng-if="item.priority == 1">Alta</span>
-				<span flex layout ="column" ng-if="item.priority == 0">Media</span>
-				<span flex layout ="column" ng-if="item.priority == -1">Bassa</span>
-			    <span flex layout ="column">{{item.tags}}</span>
-				<span flex layout ="column">{{item.hours}} Ore</span>
-                <span flex layout ="column">{{item.date  | date: "dd-MM-yyyy HH:mm"}}</span>
-				<span flex layout ="column"></b><md-button ng-click="customListCtrl.changePriority(item)" class="md-icon-button" aria-label="Priority">
+			</tr>
+		</thead>
+		
+		<tbody md-body>
+				<tr md-row  ng-repeat="item in customListCtrl.items | orderBy:filter | filter: customListCtrl.filterFunction"  ng-click="customListCtrl.toggleSelection(item)">
+				<td md-cell>{{item.title}}</td>
+				<td md-cell>{{item.description}}</td>
+				<td md-cell ng-if="item.priority == 1">Alta</td>
+				<td md-cell ng-if="item.priority == 0">Media</td>
+				<td md-cell ng-if="item.priority == -1">Bassa</td>
+				<td md-cell>{{item.tags}}</td>
+				<td md-cell>{{item.hours}}</td>
+				<td md-cell>{{item.date |  date: "dd-MM-yyyy HH:mm"}}</td>
+				<td md-cell></b><md-button ng-click="customListCtrl.changePriority(item)" class="md-icon-button" aria-label="Priority">
 					<md-icon style="color: green" ng-if="item.priority == -1">low_priority</md-icon>
 					<md-icon ng-if="item.priority == 0">label</md-icon> 
 					<md-icon style="color: red" ng-if="item.priority == 1">priority_high</md-icon>
-					</md-button></span>
-					<span flex layout ="column"><md-checkbox ng-model="item.done" ng-change="customListCtrl.checkStateChanged()" class="md-primary md-align-top-right"> 
-						</md-checkbox></span>
-			</md-card-title-text>
-		</md-card-title>
-
-
-      
-        <md-divider></md-divider> 
-    </md-card>
+					</md-button>
+				</md-cell>
+				<td md-cell><md-checkbox ng-model="item.done" ng-change="customListCtrl.checkStateChanged()" aria-label="done" class="md-primary md-align-top-right"></md-checkbox>
+				</td>
+			</tr>
+	
+		</tbody>
+	</table>
+</md-table-container>
 </div>
 </md-content>
