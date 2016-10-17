@@ -24,12 +24,19 @@
 																		</li>
 				<td md-cell>{{item.title}}</td>
 				<td md-cell>{{item.description}}</td>
-				<td md-cell ng-if="item.priority == 1">Alta</td>
-				<td md-cell ng-if="item.priority == 0">Media</td>
-				<td md-cell ng-if="item.priority == -1">Bassa</td>
+				<td md-cell ng-if="item.priority == 1">
+					<span ng-if="item.priority == 1">
+						Alta
+					</span>
+					<span ng-if="item.priority == 0">
+						Media
+					</span>
+					<span ng-if="item.priority == -1">
+						Bassa
+					</span>
+				</td>
 				<td md-cell>{{item.tags}}</td>
-				<td md-cell ng-if="item.hours <= 1 ">{{item.hours}} Ora</td>
-				<td md-cell ng-if="item.hours > 1">{{item.hours}} Ore</td>
+				<td md-cell>{{item.hours}} <span  ng-if="item.hours <= 1">Ora</span><span ng-if="item.hours > 1">Ore</span></td>
 				<td md-cell>{{item.date |  date: "dd-MM-yyyy HH:mm"}}</td>
 				<td md-cell></b><md-button ng-click="customListCtrl.changePriority(item)" class="md-icon-button" aria-label="Priority">
 					<md-icon style="color: green" ng-if="item.priority == -1">low_priority</md-icon>
