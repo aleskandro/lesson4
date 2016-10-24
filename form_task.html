@@ -6,7 +6,7 @@
                 <md-input-container class="md-block" >
                         <textarea ng-model="vm.description" size="30" md-maxlenght="150" md-select-on-focus  placeholder="inserisci descrizione"></textarea>
                 </md-input-container>
-                        <md-select ng-model="vm.priority" placeholder="Seleziona una priorità" >
+                        <md-select ng-model="vm.priority" ng-value="0" >
                                 <md-option ng-value="1" ng-selected="true" >Alta</md-option>
                                 <md-option ng-value="0">Media</md-option>
                                 <md-option ng-value="-1">Bassa</md-option>
