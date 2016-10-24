@@ -38,7 +38,7 @@
 						Bassa
 					</span>
 				</td>
-				<td md-cell ><span ng-repeat="tags in item.tags">{{tags}}</span></td>
+				<td md-cell ><span ng-repeat="tags in item.tags">{{tags}} </span></td>
 				<td md-cell>{{item.hours}} <span  ng-if="item.hours <= 1">Ora</span><span ng-if="item.hours > 1">Ore</span></td>
 				<td md-cell>{{item.date |  date: "dd-MM-yyyy HH:mm"}}</td>
 				<td md-cell></b><md-button ng-click="customListCtrl.changePriority(item)" class="md-icon-button" aria-label="Priority">
