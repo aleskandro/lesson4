@@ -1,7 +1,7 @@
 <md-dialog class="create-dialog">
-	<form name="myTask">
+	<form name="myTask" ng-submit="myTask.$valid && answer(vm)" >
                 <md-input-container class="md-block" flex-gt-xs="">
-                        <input ng-model="vm.title"  ng-required="true" size="30" placeholder="Inserisci il titolo">
+                        <input ng-model="vm.title"  ng-required="true" size="30" placeholder="Inserisci il titolo" md-autofocus>
                 </md-input-container>
                 <md-input-container class="md-block" >
                         <textarea ng-model="vm.description" size="30" md-maxlenght="150" md-select-on-focus  placeholder="inserisci descrizione"></textarea>
@@ -19,7 +19,7 @@
                 </md-input-container>
 				<p  class="error-field md-block" ng-if="!myTask.$valid">*Manca qualche campo</p>
 
-                <md-button ng-click="myTask.$valid && answer(vm)" class="md-raised md-primary">Salva</md-button>
+                <md-button ng-click="myTask.$valid && answer(vm)" class="md-raised md-primary" type="submit">Salva</md-button>
 				<md-button ng-click="cancel()" class="md-raised md-warn">Close</md-button>
 
 	</form>

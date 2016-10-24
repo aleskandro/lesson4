@@ -55,3 +55,6 @@ md-input-container .md-placeholder, md-input-container label:not(.md-no-float):n
 {
 	padding-left: 0;
 }
+tr.md-row.ng-scope:focus {
+    outline: none;
+}
