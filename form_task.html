@@ -6,10 +6,10 @@
                 <md-input-container class="md-block" >
                         <textarea ng-model="vm.description" size="30" md-maxlenght="150" md-select-on-focus  placeholder="inserisci descrizione"></textarea>
                 </md-input-container>
-                        <md-select ng-model="vm.priority" placeholder="Seleziona una priorità">
-                                <md-option value="1">Alta</md-option>
-                                <md-option value="0">Media</md-option>
-                                <md-option value="-1">Bassa</md-option>
+                        <md-select ng-model="vm.priority" placeholder="Seleziona una priorità" >
+                                <md-option ng-value="1" ng-selected="true" >Alta</md-option>
+                                <md-option ng-value="0">Media</md-option>
+                                <md-option ng-value="-1">Bassa</md-option>
                         </md-select>
                 <md-input-container class="md-block" flex-gt-xs="">
                         <input ng-model="vm.tags" size="30" placeholder="Tags">
