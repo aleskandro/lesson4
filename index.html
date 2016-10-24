@@ -40,7 +40,7 @@
                         <span>Task App</span>
                     </h2>
                     <span flex></span>
-                    <md-button ng-disabled="ctrl.selectedItem == null" ng-click="ctrl.deleteItem()" class="md-icon-button" aria-label="Delete">
+                    <md-button ng-disabled="ctrl.selectedItem.length == 0" ng-click="ctrl.deleteItem()" class="md-icon-button" aria-label="Delete">
                         <md-icon> delete </md-icon>
                     </md-button>
                 </div>

@@ -39,3 +39,14 @@ md-tab-content.md-no-scroll>div,
 {
 	background-color: #efefef;
 }
+
+.create-dialog
+{
+	padding: 1vw;
+	width: 50vw;
+}
+
+.create-dialog form
+{
+	overflow: initial;
+}
