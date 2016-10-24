@@ -18,7 +18,7 @@
 		</thead>
 		
 		<tbody md-body>
-				<tr md-row  ng-repeat="item in customListCtrl.items | orderBy:filter  | filter:item.q as results" ng-class="customListCtrl.selectedItem == item ? \'selected\':\'\'"  ng-click="customListCtrl.toggleSelection(item)">
+				<tr md-row  ng-repeat="item in customListCtrl.items | filter: customListCtrl.filterFunction |  orderBy:filter  | filter:item.q as results" ng-class="customListCtrl.selectedItem == item ? \'selected\':\'\'"  ng-click="customListCtrl.toggleSelection(item)">
 				<li class="animate-repeat" ng-if="results.length === 0">
 												<strong>No results found.</strong>
 																		</li>
