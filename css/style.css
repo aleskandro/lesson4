@@ -50,3 +50,8 @@ md-tab-content.md-no-scroll>div,
 {
 	overflow: initial;
 }
+
+md-input-container .md-placeholder, md-input-container label:not(.md-no-float):not(.md-container-ignore)
+{
+	padding-left: 0;
+}
