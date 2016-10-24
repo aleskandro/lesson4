@@ -3,6 +3,7 @@
     'use strict';
     var module = angular.module('todoApp', ['ngMaterial','md.data.table']);
 
+
     angular.module('todoApp').controller('TodoController', TodoController);
     function TodoController($scope, storageService, $mdDialog) {
         var vm = this;
@@ -50,11 +51,12 @@
 	
         //Creates a new item with the given parameters
         vm.createItem = function(title, description, priority, tags, hours, date, done) {
+			var tags_obj = tags.split(",");
             vm.items.push({
                 title: title,
                 description: description,
                 priority: priority,
-                tags: tags,
+                tags: tags_obj,
                 date: date || Date.now(),
                 hours: hours,
                 done: done || false
