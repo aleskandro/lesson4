@@ -2,7 +2,9 @@
 <md-content class="md-padding scroll tab-content"> 
 <md-table-container>
 	<table md-table>
-		<input  type="text" ng-model="item.q" placeholder="Search Task">
+		<md-input-container>
+			<input  type="text" ng-model="item.q" placeholder="Search Task">
+		</md-input-container>
 		<thead md-head md-order="filter">
 			<tr md-row>
 				<th md-column md-order-by="title"><span>Titolo</span></th>
