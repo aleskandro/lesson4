@@ -19,7 +19,7 @@
 		
 		<tbody md-body>
 			<tr md-row  
-				ng-repeat="item in customListCtrl.items | item.tags in customListCtrl.items | filter: customListCtrl.filterFunction |  orderBy:filter  | filter:item.q as results" 
+				ng-repeat="item in customListCtrl.items | filter: customListCtrl.filterFunction |  orderBy:filter  | filter:item.q as results" 
 				ng-class="customListCtrl.selectedItem.indexOf(item) != -1 ? 'selected': ''"  ng-click="customListCtrl.toggleSelection(item)" >
 				<td class="animate-repeat" ng-if="results.length == 0">
 					<strong>No results found.</strong>
