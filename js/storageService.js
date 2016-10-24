@@ -1,26 +1,35 @@
 (function() {
-    'use strict';
+		'use strict';
 
-    angular
-        .module('todoApp')
-        .service('storageService', Service);
+	angular
+		.module('todoApp')
+		.service('storageService', Service);
 
-    function Service($window) {
-        this.set = set;
-        this.get = get;
+	function Service($window) {
+		this.set = set;
+		this.get = get;
+		this.remove = remove;
+		var db = new localStorageDB("todoApp", localStorage);
 
-        //Loads value from the session storage
-        function get() {
-            var json = $window.localStorage.getItem("taskStorage");
-            if (json != null) {
-                return angular.fromJson(json);
-            }
-            return null;
-        }
+		//Loads value from the session storage
+		function get() {
+			if (!db.tableExists("todostable")) {
+				db.createTable("todostable", ["title", "description", "priority", "tags", "hours", "date", "done"]);
+				db.commit();
+			}
+			var json = db.queryAll("todostable");
+			return json;
+		}
+		//Saves the value to the session storage
+		
+		function set(value) {
+			db.insertOrUpdate("todostable", {ID: value.ID || null}, value);
+			db.commit();
+		}
 
-        //Saves the value to the session storage
-        function set(value) {
-            $window.localStorage.setItem("taskStorage", angular.toJson(value));
-        }
-    }
+		function remove(item) {
+			db.deleteRows("todostable", {ID: item.ID});
+			db.commit();
+		}
+	}
 })();

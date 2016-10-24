@@ -49,7 +49,7 @@
 					<md-icon style="color: red" ng-if="item.priority == 1">priority_high</md-icon>
 					</md-button>
 				</td>
-				<td md-cell><md-checkbox ng-model="item.done" ng-change="customListCtrl.checkStateChanged()" aria-label="done" class="md-primary md-align-top-right"></md-checkbox>
+				<td md-cell><md-checkbox ng-model="item.done" ng-change="customListCtrl.checkStateChanged(item)" aria-label="done" class="md-primary md-align-top-right"></md-checkbox>
 				</td>
 			</tr>
 	

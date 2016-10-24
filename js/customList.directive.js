@@ -31,13 +31,12 @@
                 item.priority++;
             else
                 item.priority = -1;
-
-            storageService.set(vm.items);
+			storageService.set(item);
         }
 
-        //Occurs when the status of an items changes
-        vm.checkStateChanged = function() {
-            storageService.set(vm.items);
+        //Occurs when the status of an item changes
+        vm.checkStateChanged = function(item) {
+			storageService.set(item);
         }
 
         //Select or deselect the given item

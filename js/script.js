@@ -9,7 +9,7 @@
         var vm = this;
 
         vm.selectedItem = [];
-        vm.items = storageService.get() || [];
+        vm.items = storageService.get();
 
         vm.notDone = function(item) {
             return item.done == false;
@@ -40,10 +40,10 @@
 						angular.forEach(vm.selectedItem, function(v, k) {
 							var index = vm.items.indexOf(v);
 							if (index != -1) {
-								vm.items.splice(index, 1);
-								storageService.set(vm.items);
+								storageService.remove(vm.items[index]);
 							}
 						});
+						vm.items = storageService.get();
                     }
                 });
             }
@@ -51,11 +51,10 @@
 	
         //Creates a new item with the given parameters
         vm.createItem = function(title, description, priority, tags, hours, date, done) {
-			console.log(tags);
 			var tags_obj = {};
 			if (tags !== undefined)
 				tags_obj = tags.split(",");
-            vm.items.push({
+			var item = {
                 title: title,
                 description: description,
                 priority: priority,
@@ -63,17 +62,10 @@
                 date: date || Date.now(),
                 hours: hours,
                 done: done || false
-            });
-            storageService.set(vm.items);
+            };
+			storageService.set(item);
+			vm.items = storageService.get();
         }
-
-        //Select or deselect the given item
-        /*vm.toggleSelection = function(item) {
-            if (vm.selectedItem == null || vm.selectedItem != item)
-                vm.selectedItem = item;
-            else
-                vm.selectedItem = null;
-        }*/
 
 
                 $scope.answer = function(answer){
