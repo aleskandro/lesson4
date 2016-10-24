@@ -42,10 +42,14 @@
 
         //Select or deselect the given item
         vm.toggleSelection = function(item) {
-            if (vm.selectedItem == null || vm.selectedItem != item)
-                vm.selectedItem = item;
-            else
-                vm.selectedItem = null;
+			if (vm.selectedItem.indexOf(item) == -1)
+				vm.selectedItem.push(item);
+			else
+			{
+				var index = vm.selectedItem.indexOf(item);
+				vm.selectedItem.splice(index,1);
+			}
+			console.log(vm.selectedItem);
         }
     }
 })();

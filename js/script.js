@@ -7,7 +7,7 @@
     function TodoController($scope, storageService, $mdDialog) {
         var vm = this;
 
-        vm.selectedItem = null;
+        vm.selectedItem = [];
         vm.items = storageService.get() || [];
 
         vm.notDone = function(item) {
@@ -28,7 +28,7 @@
             if (vm.selectedItem != null) {
                 var confirm = $mdDialog.confirm()
 
-                .textContent('The task "' + vm.selectedItem.title + '" will be deleted. Are you sure?')
+                .textContent(vm.selectedItem.length + ' task' + ((vm.selectedItem.length > 1 )? 's' : '') + ' will be deleted. Are you sure?')
                     .ariaLabel('Delete task')
                     .targetEvent(ev)
                     .ok('Yes')
@@ -36,11 +36,13 @@
 
                 $mdDialog.show(confirm).then(function(result) {
                     if (result) {
-                        var index = vm.items.indexOf(vm.selectedItem);
-                        if (index != -1) {
-                            vm.items.splice(index, 1);
-                            storageService.set(vm.items);
-                        }
+						angular.forEach(vm.selectedItem, function(v, k) {
+							var index = vm.items.indexOf(v);
+							if (index != -1) {
+								vm.items.splice(index, 1);
+								storageService.set(vm.items);
+							}
+						});
                     }
                 });
             }
@@ -57,16 +59,16 @@
                 hours: hours,
                 done: done || false
             });
-                        storageService.set(vm.items);
+            storageService.set(vm.items);
         }
 
         //Select or deselect the given item
-        vm.toggleSelection = function(item) {
+        /*vm.toggleSelection = function(item) {
             if (vm.selectedItem == null || vm.selectedItem != item)
                 vm.selectedItem = item;
             else
                 vm.selectedItem = null;
-        }
+        }*/
 
 
                 $scope.answer = function(answer){

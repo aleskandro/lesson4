@@ -34,3 +34,8 @@ md-tab-content.md-no-scroll>div,
 	font-size: 12px;
 	text-align: right;
 }
+
+.selected
+{
+	background-color: #efefef;
+}
