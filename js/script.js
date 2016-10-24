@@ -51,12 +51,12 @@
 	
         //Creates a new item with the given parameters
         vm.createItem = function(title, description, priority, tags, hours, date, done) {
-			var tags_obj = tag.split(",");
+			var tags_obj = tags.split(",");
             vm.items.push({
                 title: title,
                 description: description,
                 priority: priority,
-                tags: tags_obj[0],
+                tags: tags_obj,
                 date: date || Date.now(),
                 hours: hours,
                 done: done || false
