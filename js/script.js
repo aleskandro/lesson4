@@ -72,14 +72,19 @@
                 $scope.answer = function(answer){
                         $mdDialog.hide(answer);
                 };
+				 $scope.cancel = function(ev) {
+					 $mdDialog.cancel();
+                };
+
                 //Add a new task to the items list
         vm.addTask = function(ev) {
             // Appending dialog to document.body to cover sidenav in docs app
 
                         var confirm =  $mdDialog.prompt({
                                 targetEvent:ev,
-                            controller: 'TodoController',
+								controller: 'TodoController',
                                 controllerAs: 'vm',
+								clickOutsideToClose: true,
                                 templateUrl: '../form_task.html'
                         });
 
