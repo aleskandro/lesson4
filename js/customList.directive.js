@@ -49,7 +49,6 @@
 				var index = vm.selectedItem.indexOf(item);
 				vm.selectedItem.splice(index,1);
 			}
-			console.log(vm.selectedItem);
         }
     }
 })();
