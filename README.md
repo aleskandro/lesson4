@@ -1,6 +1,6 @@
 # WEB Programming and testing with a modern framework: AngularJS
 
-## Final project
+## Advanced Task App
 
 ### University of Catania (DIEEI)
 ### BaxEnergy Srl
@@ -33,6 +33,7 @@ To view a Demo, on *nix systems:
     + Date
     + ETA
     + Todo/Done flag
+    + Responsive capabilities
 * Search and sorting functionalities
 * Different tags in any task
 * Multiple selection and deletion
