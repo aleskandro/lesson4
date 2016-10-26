@@ -27,13 +27,12 @@ To view a Demo, on *nix systems:
 * Add and remove tasks
 * Tasks have multiple fieds 
     + Title
-    + Description,
+    + Description
     + Priority
     + Tags
     + Date
     + ETA
-    + Todo/
-    + Done flag
+    + Todo/Done flag
 * Search and sorting functionalities
 * Different tags in any task
 * Multiple selection and deletion
