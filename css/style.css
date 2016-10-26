@@ -59,7 +59,8 @@ tr.md-row.ng-scope:focus {
     outline: none;
 }
 .tags{
-	background-color: #efefef;
-	color: #143109;
-	padding: 10px;
+	background-color: #1a1aff;
+	color: #ffffff;
+	padding: 5px;
+	margin: 2px;
 }
