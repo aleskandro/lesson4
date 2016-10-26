@@ -20,7 +20,7 @@ It consists in a task manager with data persistency based on local storage of mo
 
 To view a Demo, on *nix systems:
 
-     1. ` $ echo "149.56.130.134 angularproject.com" | sudo tee -a /etc/hosts `
+     1. ``` $ echo "149.56.130.134 angularproject.com" | sudo tee -a /etc/hosts ```
      2. Visit http://angularproject.com
 
 # Features
@@ -41,7 +41,7 @@ To view a Demo, on *nix systems:
 
 # Installation
 
-    1. `git clone https://github.com/aleskandro/lesson4.git`
+    1. ```git clone https://github.com/aleskandro/lesson4.git```
     2. Install lighttpd 
 	   On GNU/Linux Debian (and derived distros)
 	   `# apt-get install lighttpd`
