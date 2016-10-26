@@ -58,3 +58,8 @@ md-input-container .md-placeholder, md-input-container label:not(.md-no-float):n
 tr.md-row.ng-scope:focus {
     outline: none;
 }
+.tags{
+	background-color: #efefef;
+	color: #143109;
+	padding: 10px;
+}
